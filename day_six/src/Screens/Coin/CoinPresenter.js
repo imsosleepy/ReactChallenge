@@ -12,15 +12,15 @@ const Description = styled("p")`
   margin: 30px 0px;
 `;
 
-const KeyValueRow = styled("div")`
+const Row = styled("div")`
   margin-bottom: 5px;
 `;
 
-const Key = styled("span")`
+const LeftValue = styled("span")`
   font-weight: 600;
 `;
 
-const Value = styled("span")``;
+const RightValue = styled("span")``;
 
 const InsideMenu = styled("div")`
   margin: 20px 0px;
@@ -30,14 +30,16 @@ const List = styled("ul")`
   display: flex;
 `;
 
-const Item = styled("li")`
+const Item = styled("button")`
+  width: 100px;
+  height: 30px;
   margin-right: 20px;
+  padding: 5px;
+  border-radius: 2px;
   text-transform: uppercase;
   font-weight: 600;
-  border: 2px solid #1abc9c;
-  padding: 5px;
-  border-radius: 3px;
-  background-color: ${props => (props.active ? "#1abc9c" : "transparent")};
+  border: 3px solid #00FFFF;
+  background-color: ${props => (props.active ? "#00FFFF" : "transparent")};
   color: ${props => (props.active ? "white" : "black")};
 `;
 
@@ -50,18 +52,18 @@ const CoinPresenter = withRouter(({ location: { pathname }, loading, coin }) =>
         {coin.name} / {coin.symbol}
       </Title>
       <Description>{coin.description}</Description>
-      <KeyValueRow>
-        <Key>Rank:</Key> <Value>{coin.rank}</Value>
-      </KeyValueRow>
-      <KeyValueRow>
-        <Key>Open Source:</Key> <Value>{coin.open_source ? "Yes" : "No"}</Value>
-      </KeyValueRow>
-      <KeyValueRow>
-        <Key>Proof Type:</Key> <Value>{coin.proof_type}</Value>
-      </KeyValueRow>
-      <KeyValueRow>
-        <Key>Structure:</Key> <Value>{coin.org_structure}</Value>
-      </KeyValueRow>
+      <Row>
+        <LeftValue>Rank:</LeftValue> <RightValue>{coin.rank}</RightValue>
+      </Row>
+      <Row>
+        <LeftValue>Open Source:</LeftValue> <RightValue>{coin.open_source ? "Yes" : "No"}</RightValue>
+      </Row>
+      <Row>
+        <LeftValue>Proof Type:</LeftValue> <RightValue>{coin.proof_type}</RightValue>
+      </Row>
+      <Row>
+        <LeftValue>Structure:</LeftValue> <RightValue>{coin.org_structure}</RightValue>
+      </Row>
       <InsideMenu>
         <List>
           <Item active={pathname === `/coins/${coin.id}/markets`}>

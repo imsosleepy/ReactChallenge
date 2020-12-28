@@ -22,9 +22,11 @@ export default class extends React.Component {
       this.setState({ loading: false });
     }
   };
+
   componentDidMount() {
     this.getExchanges();
   }
+  
   render() {
     return <CoinExchangesPresenter {...this.state} />;
   }

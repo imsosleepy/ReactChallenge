@@ -9,7 +9,7 @@ const Container = styled("div")`
 
 const Market = ({ url, name }) => (
   <Container>
-    <a href={url} target="_blank">
+    <a href={url}>
       {name}
     </a>
   </Container>
